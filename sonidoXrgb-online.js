@@ -77,6 +77,7 @@ function recibirDatosArduino(datosSerial) {
   oscR.amp(sensor1, 0, 255, 0, 0.3);
   oscG.amp(sensor2, 0, 255, 0, 0.3);
   oscB.amp(sensor3, 0, 255, 0, 0.3);
+}
 
 // 4. DESBLOQUEO DE AUDIO (Obligatorio para que suene al hacer click)
 function mousePressed() {
