@@ -65,14 +65,6 @@ function recibirDatosArduino(datosSerial) {
   r = sensor1;
   g = sensor2;
   b = sensor3;
-/*
-  // --- MODULACIÓN DE AUDIO NATIVA ---
-  // Mapeamos el valor (0-255) a volumen (0 a 0.3) para evitar saturar el navegador.
-  // El parámetro 0.05 suaviza las transiciones de audio evitando clicks digitales.
-  oscR.amp(map(sensor1, 0, 255, 0, 0.3), 0.05);
-  oscG.amp(map(sensor2, 0, 255, 0, 0.3), 0.05);
-  oscB.amp(map(sensor3, 0, 255, 0, 0.3), 0.05);
-*/
 
   oscR.amp(map(sensor1, 0, 255, 0, 0.3));
   oscG.amp(map(sensor2, 0, 255, 0, 0.3));
