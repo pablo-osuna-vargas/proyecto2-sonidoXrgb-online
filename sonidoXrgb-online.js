@@ -32,7 +32,7 @@ function setup() {
 // 3. LA FUNCIÓN DE CONEXIÓN VIVE AFUERA DE SETUP
 function conectarBridge() {
   // Usamos 'io' (de socket.io) que es la librería que instalamos en el server.js
-  socket = io(https://stream-delusion-shaky.ngrok-free.dev );
+  socket = io(stream-delusion-shaky.ngrok-free.dev );
 
   // Escuchamos el evento directo 'lectura-sensores' que configuramos en Node
   socket.on('lectura-sensores', (data) => {
