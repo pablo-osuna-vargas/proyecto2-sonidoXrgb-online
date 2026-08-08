@@ -21,9 +21,9 @@ function setup() {
   oscG = new p5.Oscillator('sine');
   oscB = new p5.Oscillator('sine');
 
-  oscR.amp(0); oscR.freq(400);
-  oscG.amp(0); oscG.freq(496);
-  oscB.amp(0); oscB.freq(592);
+  oscR.amp(0.1); oscR.freq(400);
+  oscG.amp(0.1); oscG.freq(496);
+  oscB.amp(0.1); oscB.freq(592);
 
   // 2. LLAMAR A LA CONEXIÓN (La función ahora vive afuera)
   conectarBridge();
