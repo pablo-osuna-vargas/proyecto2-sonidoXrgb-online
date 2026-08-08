@@ -21,9 +21,9 @@ function setup() {
   oscG = new p5.Oscillator('sine');
   oscB = new p5.Oscillator('sine');
 
-  oscR.start(); oscR.amp(0); oscR.freq(400);
-  oscG.start(); oscG.amp(0); oscG.freq(496);
-  oscB.start(); oscB.amp(0); oscB.freq(592);
+  oscR.amp(0); oscR.freq(400);
+  oscG.amp(0); oscG.freq(496);
+  oscB.amp(0); oscB.freq(592);
 
   // 2. LLAMAR A LA CONEXIÓN (La función ahora vive afuera)
   conectarBridge();
@@ -32,7 +32,7 @@ function setup() {
 // 3. LA FUNCIÓN DE CONEXIÓN VIVE AFUERA DE SETUP
 function conectarBridge() {
   // Usamos 'io' (de socket.io) que es la librería que instalamos en el server.js
-  socket = io(https:stream-delusion-shaky.ngrok-free.dev );
+  socket = io(URL_NGROK);
 
   // Escuchamos el evento directo 'lectura-sensores' que configuramos en Node
   socket.on('lectura-sensores', (data) => {
@@ -83,6 +83,9 @@ function recibirDatosArduino(datosSerial) {
 function mousePressed() {
   if (getAudioContext().state !== 'running') {
     getAudioContext().resume();
+    oscR.start();
+    oscG.start();
+    oscB.start();
     console.log("Audio activado en el navegador");
   }
 }
