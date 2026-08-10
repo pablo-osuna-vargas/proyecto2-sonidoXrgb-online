@@ -44,9 +44,9 @@ function draw() {
 function recibirDatosArduino(datosSerial) {
   let sensores = datosSerial.split(',');
   // Convertimos lecturas a números
-  let sensor1 = parsInt(sensores[0], 10);
-  let sensor2 = parsInt(sensores[1], 10);
-  let sensor3 = parsInt(sensores[2]), 10;
+  let sensor1 = Number(sensores[0]);
+  let sensor2 = Number(sensores[1]);
+  let sensor3 = Number(sensores[2]);
 
   console.log("datos Arduino:", sensor1, sensor2, sensor3);
 
