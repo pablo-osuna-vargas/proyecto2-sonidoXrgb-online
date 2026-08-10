@@ -15,9 +15,9 @@ void loop() {
     int lectura3 = map(analogRead(pinPot2), 0, 1023, 0, 255);
 
     Serial.print(lectura1);
-    Serial.print(" ");
+    Serial.print(",");
     Serial.print(lectura2);
-    Serial.print(" ");
+    Serial.print(",");
     Serial.println(lectura3);
 
   }
