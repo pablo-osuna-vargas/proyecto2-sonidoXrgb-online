@@ -24,8 +24,8 @@ function setup() {
   // Listar puertos disponibles
   serial.list();
 
-  // Abrir el puerto correcto (ajustá el COM según tu Arduino)
-  serial.openPort("COM3", { baudrate: 9600 });
+  // Abrir desde URL proporcionada por ngrok
+  serial.openSocket("wss://stream-delusion-shaky.ngrok-free.dev");
 
   // Callback cuando llegan datos
   serial.on('data', gotData);
