@@ -25,7 +25,7 @@ function setup() {
   serial.list();
 
   // Abrir desde URL proporcionada por ngrok
-  serial.openSocket("wss://stream-delusion-shaky.ngrok-free.dev");
+  serial.open("wss://stream-delusion-shaky.ngrok-free.dev");
 
   // Callback cuando llegan datos
   serial.on('data', gotData);
