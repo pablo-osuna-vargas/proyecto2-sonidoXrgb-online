@@ -1,5 +1,5 @@
 let started = false;
-let serial;
+let socket;   // en vez de serial
 
 let r = 0;
 let g = 0;
@@ -18,24 +18,15 @@ function setup() {
   oscG.amp(0); oscG.freq(496);
   oscB.amp(0); oscB.freq(592);
 
-  // Conexión al servidor de p5.serialcontrol
-  serial = new p5.SerialPort();
-  console.log(serial);
-
-  // Listar puertos disponibles
-  serial.list();
-
-  // Abrir desde URL proporcionada por ngrok
-  serial.openSocket("wss://stream-delusion-shaky.ngrok-free.dev");
+  // Conexión al servidor expuesto por ngrok
+  socket = new WebSocket("wss://stream-delusion-shaky.ngrok-free.dev");
 
   // Callback cuando llegan datos
-  serial.on('data', gotData);
-}
-
-function gotData() {
-  let datosSerial = serial.readLine(); // lee una línea completa
-  if (!datosSerial) return;
-  recibirDatosArduino(datosSerial);
+  socket.onmessage = (event) => {
+    let datosSerial = event.data; // llega como string
+    if (!datosSerial) return;
+    recibirDatosArduino(datosSerial);
+  };
 }
 
 function draw() {
@@ -44,7 +35,6 @@ function draw() {
 
 function recibirDatosArduino(datosSerial) {
   let sensores = datosSerial.split(',');
-  // Convertimos lecturas a números
   let sensor1 = Number(sensores[0]);
   let sensor2 = Number(sensores[1]);
   let sensor3 = Number(sensores[2]);
