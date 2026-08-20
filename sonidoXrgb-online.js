@@ -41,7 +41,7 @@ function recibirDatosArduino(datosSerial) {
   let sensor2 = Number(sensores[1]);
   let sensor3 = Number(sensores[2]);
 
-  console.log("datos Arduino:" sensor1, sensor2, sensor3);
+  console.log("datos Arduino:", sensor1, sensor2, sensor3);
 
   r = sensor1;
   g = sensor2;
