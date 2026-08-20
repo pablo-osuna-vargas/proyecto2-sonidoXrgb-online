@@ -45,9 +45,9 @@ function recibirDatosArduino(datosSerial) {
   g = sensor2;
   b = sensor3;
 
-  oscR.amp(map(sensor1, 0, 255, 0, 0.3));
+  oscR.amp(map(sensor1, 0, 255, 0, 0.2));
   oscG.amp(map(sensor2, 0, 255, 0, 0.3));
-  oscB.amp(map(sensor3, 0, 255, 0, 0.3));
+  oscB.amp(map(sensor3, 0, 255, 0, 0.1));
 }
 
 function mousePressed() {
