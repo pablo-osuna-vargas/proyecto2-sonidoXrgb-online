@@ -25,7 +25,9 @@ function setup() {
   socket.onmessage = (event) => {
     let datosSerial = event.data; // llega como string
     if (!datosSerial) return;
-    recibirDatosArduino(datosSerial);
+    recibirDatosArduino(datosSerial.trim());
+
+    console.log("crudo:", event.data);
   };
 }
 
@@ -39,7 +41,7 @@ function recibirDatosArduino(datosSerial) {
   let sensor2 = Number(sensores[1]);
   let sensor3 = Number(sensores[2]);
 
-  console.log("datos Arduino:", sensor1, sensor2, sensor3);
+  console.log("datos Arduino:" sensor1, sensor2, sensor3);
 
   r = sensor1;
   g = sensor2;
