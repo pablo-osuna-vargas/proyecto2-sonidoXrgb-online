@@ -20,12 +20,13 @@ function setup() {
 
   // Conexión al servidor de p5.serialcontrol
   serial = new p5.SerialPort();
+  console.log(serial);
 
   // Listar puertos disponibles
   serial.list();
 
   // Abrir desde URL proporcionada por ngrok
-  serial.open("wss://stream-delusion-shaky.ngrok-free.dev");
+  serial.openSocket("wss://stream-delusion-shaky.ngrok-free.dev");
 
   // Callback cuando llegan datos
   serial.on('data', gotData);
